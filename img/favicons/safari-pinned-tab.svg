@@ -1,0 +1,205 @@
+
+		//contact section
+		vc_map(array(
+		'name'						=> 'Contact Section',
+		'base'						=> 'contact-section',
+		'description'				=> 'This is custom Section',
+		'category'					=> 'Custom',
+		'show_settings_on_create'	=> false,
+		'icon'						=> 'https://cdn2.iconfinder.com/data/icons/flatastic-5-2/256/24-7-32.png',
+		'params'					=> array(
+			array(
+				'type' 			=> 'textfield',
+				'heading'		=> 'Title',
+				'param_name'	=> 'title',
+				'description'	=> 'Enter title',
+				'value'			=> 'Keep in touch'
+				),
+			array(
+				'type' 			=> 'textfield',
+				'heading'		=> 'Subtitle',
+				'param_name'	=> 'subtitle',
+				'description'	=> 'Enter Subtitle',
+				'value'			=> 'Here you can find me. I\'d like to hear from you all. You can hire me, ask me about anything or buy me coffee.'
+				),
+			array(
+				'type' 			=> 'textfield',
+				'heading'		=> 'Location Title',
+				'param_name'	=> 'location_title',
+				'description'	=> 'Enter address',
+				'value'			=> 'My Place'
+				),
+			array(
+				'type' 			=> 'textfield',
+				'heading'		=> 'Location Info',
+				'param_name'	=> 'location_info',
+				'description'	=> 'Enter location info',
+				'value'			=> '1234 st, Darlon city, Egypt <br> 414220'
+				),
+			array(
+				'type' 			=> 'textfield',
+				'heading'		=> 'Number Title',
+				'param_name'	=> 'number_title',
+				'description'	=> 'Enter title',
+				'value'			=> 'Call Me'
+				),
+			array(
+				'type' 			=> 'textfield',
+				'heading'		=> 'Number Info',
+				'param_name'	=> 'number_info',
+				'description'	=> 'Enter number',
+				'value'			=> '(+020) 12 221 187 22 <br> (+020) 11 221 187 21'
+				),
+			array(
+				'type' 			=> 'textfield',
+				'heading'		=> 'Email Title',
+				'param_name'	=> 'mail_title',
+				'description'	=> 'Enter Title',
+				'value'			=> 'Send Message'
+				),
+			array(
+				'type' 			=> 'textfield',
+				'heading'		=> 'Mail Info',
+				'param_name'	=> 'mail_info',
+				'description'	=> 'Enter mail id',
+				'value'			=> 'info@prema.ca <br> admin@prema.ca'
+				),
+			array(
+				'type' 			=> 'textfield',
+				'heading'		=> 'Time Title',
+				'param_name'	=> 'time_title',
+				'description'	=> 'Enter title',
+				'value'			=> 'Work Time'
+				),
+			array(
+				'type' 			=> 'textfield',
+				'heading'		=> 'Time Info',
+				'param_name'	=> 'time_info',
+				'description'	=> 'Enter info',
+				'value'			=> 'Sat - Thr : 8.00 - 16.00 <br> Friday: Holiday'
+				),
+			array(
+				'type' 			=> 'textarea',
+				'heading'		=> 'Contact Form',
+				'param_name'	=> 'contact_form',
+				'description'	=> 'Enter form shortcode',
+				'value'			=> '[contact-form-7 id="221" title="Contact form"]'
+				)
+			)
+		));
+
+		
+		
+		
+		//contact section
+add_shortcode('contact-section','contact_section');
+function contact_section($attr, $content=null){
+	$attributes= extract(  shortcode_atts(array(
+		'title'				=> 'Keep in touch',
+		'subtitle'			=> 'Here you can find me. I\'d like to hear from you all. You can hire me, ask me about anything or buy me coffee.',
+		'location_title'	=> 'My Place',
+		'location_info'		=> '1234 st, Darlon city, Egypt <br> 414220',
+		'number_title'		=> 'Call Me',
+		'number_info'		=> '(+020) 12 221 187 22 <br> (+020) 11 221 187 21',
+		'mail_title'		=> 'Send Message',
+		'mail_info'			=> 'info@prema.ca <br> admin@prema.ca',
+		'time_title'		=> 'Work Time',
+		'time_info'			=> 'Sat - Thr : 8.00 - 16.00 <br> Friday: Holiday',
+		'time_title'		=> 'Work Time',
+		'time_info'			=> 'Sat - Thr : 8.00 - 16.00 <br> Friday: Holiday',
+		'contact_form'		=> '[contact-form-7 id="221" title="Contact form"]'
+		
+
+		),$attr));
+	
+
+	ob_start(); ?>
+	<!-- Start Contact Section -->
+	<div id="contact" class="section text-center">
+		<div class="container">
+			<div class="overlay"></div>
+			
+			<div class="row">
+				<div class="col-xs-12 social-wrapper wow fadeInLeft" data-wow-duration="1s" data-wow-offset="100">
+					<h4>follow me here :</h4>
+					<!-- Follow Me Social Links -->
+					<div class="social-links">
+						<a href="<?php global $kazi; echo $kazi['facebook-link']; ?>" class="icon fb"></a> <!-- Facebook Link -->
+						<a href="<?php global $kazi; echo $kazi['instagram-link']; ?>" class="icon ig"></a> <!-- Instagram Link -->
+						<a href="<?php global $kazi; echo $kazi['twitter-link']; ?>" class="icon tw"></a> <!-- Twitter Link -->
+						<a href="<?php global $kazi; echo $kazi['github-link']; ?>" class="icon gh"></a> <!-- Github Link -->
+						<a href="<?php global $kazi; echo $kazi['linkedIn-link']; ?>" class="icon li"></a> <!-- Linkedin Link -->
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Contact Section -->
+
+<?php return ob_get_clean();
+}
+
+//testimonials section
+add_shortcode('testimonials-section','testimonials_section');
+function testimonials_section($attr, $content = null){
+	$attributes = extract(  shortcode_atts(array(
+		'title'		=> 'What my Lovely clients say',
+		'subtitle'	=> 'Synergistically create extensive intellectual capital rather than clicks-and-mortar materials.'
+		),$attr));
+	ob_start(); ?>
+	<!-- Start Testimonials Section -->
+	<section id="testimonials" class="section text-center">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="section-intro">
+						<h2><?php echo $title; ?></h2>
+						<div class="separator centered"></div>
+						<p class="para"><?php echo $subtitle; ?></p>
+					</div>
+				</div>	
+			</div>
+			<!-- Start Carousel -->
+			<div id="carousel" class="carousel slide" data-ride="carousel">
+				<!-- Items Wrapper -->
+				<div class="carousel-inner" role="listbox">
+					<?php $testimonials=new WP_Query(array(
+						'post_type'		=> 'kazi-testimonials',
+						'posts_per_page'	=> 1
+					)); 
+					while($testimonials->have_posts()){
+						$testimonials->the_post(); ?>
+
+						<!-- Client NO. 1 -->
+					<div class="item row active">
+						<div class="client-details">
+							<?php the_post_thumbnail('thumbnail', array('class' => 'img-circle img-responsive')); ?>
+							<h4> <?php echo the_title(); ?></h4>
+						</div>
+						<p class="testimonial-text para col-sm-8 col-sm-offset-2 col-xs-12"><?php echo get_post_meta(get_the_id(),'_client-review', true); ?></p>
+					</div>
+
+				<?php	} ?>
+					
+					
+				</div>
+				<!-- Controls -->
+				<div class="carousel-controls">
+					<a href="#carousel" class="left carousel-control" role="button" data-slide="prev">
+						<i class="fa fa-angle-left" aria-hidden="true"></i>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a href="#carousel" class="right carousel-control" role="button" data-slide="next">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>	
+			</div>  <!-- End Carousel -->
+		</div>
+	</section>
+	<!-- End Testimonials Section -->
+
+<?php return ob_get_clean();
+}
